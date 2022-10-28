@@ -1,0 +1,210 @@
+{
+    "values": [
+        {
+            "command": "sudo lshw",
+            "assets": {
+                "PCModel": {
+                    "location": "First Square",
+                    "name": "product",
+                    "type":"string"
+                },
+                "PCManufacturer": {
+                    "command": "sudo lshw",
+                    "location": "First Square",
+                    "name": "vendor",
+                    "type":"string"
+                },
+                "Hostname": {
+                    "location": "First Square",
+                    "name": "id",
+                    "type":"string"
+                },
+                "ChassisType": {
+                    "location": "First Square - Description or Configuration/Chasis",
+                    "name": "id",
+                    "type":"string"
+                },
+                "WirelessAdapter": {
+                    "location": "id:network:wireless",
+                    "name":"product",
+                    "type":"string"
+                },
+                "WirelessMAC": {
+                    "location": "id:network:wireless",
+                    "name":"serial",
+                    "type":"string"
+                },
+                "WiredAdapter": {
+                    "location": "id:network:ethernet",
+                    "name":"product",
+                    "type":"string"
+                },
+                "WiredMAC": {
+                    "location": "id:network:ethernet",
+                    "name":"serial",
+                    "type":"string"
+                },
+                "VideoController": {
+                    "location": "display",
+                    "name":"vendor + product",
+                    "type":"string"
+                },
+                "AudioController": {
+                    "location": "multimedia",
+                    "name": {
+                        "Manufacturer": "vendor",
+                        "Name": "product",
+                        "Status": "ASK",
+                        "StatusInfo": "ASK"
+                    },
+                    "type":"array of objects"
+                },
+                "RAM": {
+                    "location": "System Memory",
+                    "name": {
+                        "Manufacturer": "vendor",
+                        "Configuredclockspeed": "clock",
+                        "Devicelocator": "slot",
+                        "Serialnumber": "serial",
+                        "CapacityGB": "size"
+                    },
+                    "type":"array of objects"
+                },
+                "Processor": {
+                    "location": "cpu",
+                    "name": "product",
+                    "type":"string"
+                },
+                "BiosVersion": {
+                    "location": "firmware",
+                    "name": "version",
+                    "type":"string"
+                },
+                "OS": {
+                    "location": "volume:0",
+                    "name": "vendor",
+                    "type":"string"
+                },
+                "OSVersion": {
+                    "location": "volume:0",
+                    "name": "version",
+                    "type":"string"
+                },
+                "BIOSVendor": {
+                    "location": "firmware",
+                    "name": "vendor",
+                    "type":"string"
+                }
+            }  
+        },
+        {
+            "command": "nmcli dev wifi list",
+            "assets": {
+                "wifiAccessPoints": {
+                    "name": {
+                            "macAddress": "BSSSID",
+                            "channel": "CHANB"
+                    },
+                    "type":"array of objects"
+                }
+            }
+        },
+        {
+            "command": "sudo ifconfig | grep -i mask",
+            "assets": {
+                "PrivateIP": {
+                    "location": "evitar el localhost",
+                    "name": "inet",
+                    "type":"string"
+                },
+                "SubnetMask": {
+                    "location": "evitar el localhost",
+                    "name": "netmask",
+                    "type":"string"
+                }
+            }
+        },
+        {
+            "command": "ip r | grep default",
+            "assets": {
+                "DefaultGateway": {
+                    "location": "default via",
+                    "name": "default via",
+                    "type":"string"
+                }
+            }
+        },
+        {
+            "command": "curl ifconfig.me",
+            "assets": {
+                "PublicIP": {
+                    "location": "",
+                    "name": "",
+                    "type":"string"
+                }
+            }
+        },
+        {
+            "command": "cat /etc/resolv.conf",
+            "assets": {
+                "DNS": {
+                    "location": "the DNS is called with nameserver",
+                    "name": "nameserver",
+                    "type":"array de strings"
+                }
+            }
+        },
+        {
+            "command": "apt show '~i' -a",
+            "assets": {
+                "Software": {
+                    "name": {
+                        "DisplayName": "CPackage",
+                        "Version": "Version",
+                        "InstallDate": "null",
+                        "Publisher": "Maintainer"
+                    },
+                    "type":"array of objects"
+                }
+            }
+        },
+        {
+            "command": "last -1",
+            "assets": {
+                "LastLoggedOnUser": {
+                    "name": {
+                        "CurrentlyLoggedOn": "still logged in or down",
+                        "Time": "time",
+                        "User": "name of user",
+                        "Computer": "the hostname"
+                    },
+                    "type":"array of objects"
+                }
+            }
+        },
+        {
+            "command": "There's no command",
+            "assets": {
+                "SystemDirectory": {
+                    "location": "/boot",
+                    "name": "",
+                    "type":"array de strings"
+                }
+            }
+        },
+        {
+            "Window": [
+                "BitLockerStatus",
+                "WipeCapabilities"
+            ]
+        },
+        {
+            "Questions": [
+                {
+                    "domain": "EN linux es necesario instalar samba para obtener los workgroup"
+                }
+            ]
+        }
+    ]
+    
+}

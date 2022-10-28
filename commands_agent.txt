@@ -1,0 +1,27 @@
+To get list and attributes of device's hardware we've got to run the next command:
+This command must be running as as Super user
+
+    -sudo lshw
+
+To get the detail data from the CPU run: 
+
+    -lscpu
+
+To get the users profiles: 
+https://electrictoolbox.com/ubuntu-list-users/#:~:text=Listing%20users%20in%20Ubuntu%20can,two%20commands%3A%20less%20and%20cat.
+
+    -grep -E '^UID_MIN|^UID_MAX' /etc/login.defs
+    -getent passwd {1000..60000}
+
+To geg the history of users logged in:
+
+https://linuxhint.com/check-user-login-history-linux/#:~:text=Linux%20(Ubuntu)%20stores%20login%20data,keeps%20all%20bad%20login%20attempts
+
+    -last
+
+To get all the processors:
+
+https://www.cyberciti.biz/faq/check-how-many-cpus-are-there-in-linux-system/
+
+    -cat /proc/cpuinfo
+

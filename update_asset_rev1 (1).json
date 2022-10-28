@@ -1,0 +1,687 @@
+{
+    "! PCModel": "HP ProBook 440 G5",
+    "! PCManufacturer": "HP",
+    "! Hostname": "TEST-X-440G5",
+    "! wifiAccessPoints": [
+        {
+            "macAddress": "c4:13:e2:74:58:15",
+            "channel": "1"
+        },
+        {
+            "macAddress": "00:0f:66:19:16:5d",
+            "channel": "6"
+        }
+    ],
+    "! PrivateIP": "10.44.112.36",
+    "! SubnetMask": "255.255.240.0",
+    "! DefaultGateway": "10.44.112.1",
+    "! DNS": [
+        "10.1.209.20",
+        "10.7.252.20"
+    ],
+    "? Subnet": "10.44.112.0_20  ASK",
+    "! PublicIP": "71.46.246.71",
+    "! WirelessAdapter": "Intel(R) Dual Band Wireless-AC 8265",
+    "! WirelessMAC": "D0-C6-37-43-BF-D4",
+    "! WiredAdapter": "Realtek PCIe GbE Family Controller",
+    "! WiredMAC": "80-E8-2C-19-9F-AD",
+    "! VideoController": "Intel(R) UHD Graphics 620",
+    "? Monitor": null,
+    "!AudioController": [
+        {
+            "Manufacturer": "Intel(R) Corporation",
+            "Name": "Intel(R) Display Audio",
+            "Status": "OK ASK",
+            "StatusInfo": "3 ASK"
+        },
+        {
+            "Manufacturer": "Conexant",
+            "Name": "Conexant ISST Audio",
+            "Status": "OK",
+            "StatusInfo": 3
+        }
+    ],
+    "?TPMStatus": {
+        "Enabled": true,
+        "Activated": true,
+        "Owned": true
+    },
+    "! BitLockerStatus": {
+        "ComputerName": "TEST-X-440G5",
+        "MountPoint": "C:",
+        "EncryptionMethod": 6,
+        "AutoUnlockEnabled": null,
+        "AutoUnlockKeyStored": false,
+        "MetadataVersion": 2,
+        "VolumeStatus": 1,
+        "ProtectionStatus": 1,
+        "LockStatus": 0,
+        "EncryptionPercentage": 100,
+        "WipePercentage": 0,
+        "VolumeType": 0,
+        "CapacityGB": 118.493469,
+        "KeyProtector": [
+            "Tpm",
+            "RecoveryPassword"
+        ]
+    },
+    "WOL": false,
+    "!BiosVersion": "Q85 Ver. 01.18.00",
+    "!OS": "Microsoft Windows 10 Education",
+    "?Description": null,
+    "! RAM": {
+        "Manufacturer": "Hynix/Hyundai",
+        "Configuredclockspeed": 2400,
+        "Devicelocator": "Bottom-Slot 1(left)",
+        "Serialnumber": "93026D85",
+        "CapacityGB": 4
+    },
+    "?HDInfo": {
+        "Model": "SAMSUNG MZNLN128HAHQ-000H1",
+        "Serial": "S3T8NG0M613374",
+        "HealthStatus": "Healthy",
+        "OperationalStatus": "Online",
+        "Mode": "GPT",
+        "Path": "C:",
+        "CapacityGB": 119.24,
+        "FreeGB": 71.39,
+        "BusType": "SATA",
+        "BootDisk": true,
+        "Firmware": "MVT24H3Q"
+    },
+    "!LastLoggedOnUser": {
+        "CurrentlyLoggedOn": false,
+        "Time": "\\/Date(1645534626010)\\/",
+        "User": "loemotz",
+        "Computer": "TEST-X-440G5"
+    },
+    "UserProfiles": [
+        {
+            "UserName": "NT AUTHORITY\\\\NETWORK SERVICE",
+            "LastUseTime": "\\/Date(1645762448431)\\/",
+            "Loaded": true
+        },
+        {
+            "UserName": "NT AUTHORITY\\\\LOCAL SERVICE",
+            "LastUseTime": "\\/Date(1645762448431)\\/",
+            "Loaded": true
+        },
+        {
+            "UserName": "NT AUTHORITY\\\\SYSTEM",
+            "LastUseTime": "\\/Date(1645762448431)\\/",
+            "Loaded": true
+        },
+        {
+            "UserName": "EMP\\\\loemotz",
+            "LastUseTime": "\\/Date(1645534626010)\\/",
+            "Loaded": false
+        },
+        {
+            "UserName": "EMP\\\\ortiznz",
+            "LastUseTime": "\\/Date(1645534586041)\\/",
+            "Loaded": false
+        }
+    ],
+    "LocalAdmins": [
+        "TEST-X-440G5\\\\Administrator",
+        "TEST-X-440G5\\\\testing"
+    ],
+    "!Software": [
+        {
+            "DisplayName": "Cisco Packet Tracer 7.3.1 64Bit",
+            "Version": null,
+            "InstallDate": "\\/Date(1644469200000)\\/",
+            "Publisher": "Cisco Systems, Inc."
+        },
+        {
+            "DisplayName": "Conexant ISST Audio",
+            "Version": "9.0.278.150",
+            "InstallDate": null,
+            "Publisher": "Conexant"
+        },
+        {
+            "DisplayName": "Microsoft 365 Apps for enterprise - en-us",
+            "Version": "16.0.14729.20322",
+            "InstallDate": null,
+            "Publisher": "Microsoft Corporation"
+        },
+        {
+            "DisplayName": "Octave 6.4.0",
+            "Version": "6.4.0",
+            "InstallDate": null,
+            "Publisher": "GNU Octave"
+        },
+        {
+            "DisplayName": "Synaptics Pointing Device Driver",
+            "Version": "19.4.3.166",
+            "InstallDate": null,
+            "Publisher": "Synaptics Incorporated"
+        },
+        {
+            "DisplayName": "VLC media player",
+            "Version": "3.0.12",
+            "InstallDate": null,
+            "Publisher": "VideoLAN"
+        },
+        {
+            "DisplayName": "Remote help",
+            "Version": "3.8.0.6",
+            "InstallDate": "\\/Date(1644382800000)\\/",
+            "Publisher": "Microsoft Corporation"
+        },
+        {
+            "DisplayName": "SketchUp 2019",
+            "Version": "19.3.255.136",
+            "InstallDate": "\\/Date(1644469200000)\\/",
+            "Publisher": "Trimble, Inc."
+        },
+        {
+            "DisplayName": "Microsoft Update Health Tools",
+            "Version": "3.65.0.0",
+            "InstallDate": "\\/Date(1645506000000)\\/",
+            "Publisher": "Microsoft Corporation"
+        },
+        {
+            "DisplayName": "Python 3.7.9 Utility Scripts (64-bit)",
+            "Version": "3.7.9150.0",
+            "InstallDate": "\\/Date(1644469200000)\\/",
+            "Publisher": "Python Software Foundation"
+        },
+        {
+            "DisplayName": "Google Chrome",
+            "Version": "98.0.4758.102",
+            "InstallDate": "\\/Date(1644469200000)\\/",
+            "Publisher": "Google LLC"
+        },
+        {
+            "DisplayName": "Oracle VM VirtualBox 6.1.32",
+            "Version": "6.1.32",
+            "InstallDate": "\\/Date(1644728400000)\\/",
+            "Publisher": "Oracle Corporation"
+        },
+        {
+            "DisplayName": "Python 3.7.9 pip Bootstrap (64-bit)",
+            "Version": "3.7.9150.0",
+            "InstallDate": "\\/Date(1644469200000)\\/",
+            "Publisher": "Python Software Foundation"
+        },
+        {
+            "DisplayName": "Microsoft Visual Studio Installer",
+            "Version": "2.11.63.5026",
+            "InstallDate": "\\/Date(1644382800000)\\/",
+            "Publisher": "Microsoft Corporation"
+        },
+        {
+            "DisplayName": "Office 16 Click-to-Run Licensing Component",
+            "Version": "16.0.14729.20322",
+            "InstallDate": "\\/Date(1644382800000)\\/",
+            "Publisher": "Microsoft Corporation"
+        },
+        {
+            "DisplayName": "Office 16 Click-to-Run Extensibility Component",
+            "Version": "16.0.14729.20322",
+            "InstallDate": "\\/Date(1644382800000)\\/",
+            "Publisher": "Microsoft Corporation"
+        },
+        {
+            "DisplayName": "Microsoft Visual C++ 2013 x64 Additional Runtime - 12.0.21005",
+            "Version": "12.0.21005",
+            "InstallDate": "\\/Date(1644382800000)\\/",
+            "Publisher": "Microsoft Corporation"
+        },
+        {
+            "DisplayName": "FLSecureBrowser",
+            "Version": "14.0.0",
+            "InstallDate": "\\/Date(1645506000000)\\/",
+            "Publisher": "CAI"
+        },
+        {
+            "DisplayName": "Microsoft Visual C++ 2013 x64 Minimum Runtime - 12.0.21005",
+            "Version": "12.0.21005",
+            "InstallDate": "\\/Date(1644382800000)\\/",
+            "Publisher": "Microsoft Corporation"
+        },
+        {
+            "DisplayName": "Python 3.7.9 Development Libraries (64-bit)",
+            "Version": "3.7.9150.0",
+            "InstallDate": "\\/Date(1644469200000)\\/",
+            "Publisher": "Python Software Foundation"
+        },
+        {
+            "DisplayName": "Python 3.7.9 Executables (64-bit)",
+            "Version": "3.7.9150.0",
+            "InstallDate": "\\/Date(1644469200000)\\/",
+            "Publisher": "Python Software Foundation"
+        },
+        {
+            "DisplayName": "Python 3.7.9 Documentation (64-bit)",
+            "Version": "3.7.9150.0",
+            "InstallDate": "\\/Date(1644469200000)\\/",
+            "Publisher": "Python Software Foundation"
+        },
+        {
+            "DisplayName": "Python 3.7.9 Test Suite (64-bit)",
+            "Version": "3.7.9150.0",
+            "InstallDate": "\\/Date(1644469200000)\\/",
+            "Publisher": "Python Software Foundation"
+        },
+        {
+            "DisplayName": "RLBotGUI",
+            "Version": "1.1.0",
+            "InstallDate": "\\/Date(1644814800000)\\/",
+            "Publisher": "RLBot"
+        },
+        {
+            "DisplayName": "Python 3.7.9 Tcl/Tk Support (64-bit)",
+            "Version": "3.7.9150.0",
+            "InstallDate": "\\/Date(1644469200000)\\/",
+            "Publisher": "Python Software Foundation"
+        },
+        {
+            "DisplayName": "Microsoft Visual Studio Code",
+            "Version": "1.63.0",
+            "InstallDate": "\\/Date(1644469200000)\\/",
+            "Publisher": "Microsoft Corporation"
+        },
+        {
+            "DisplayName": "Ableton Live 9 Standard",
+            "Version": "9.0.0.0",
+            "InstallDate": "\\/Date(1644382800000)\\/",
+            "Publisher": "Ableton"
+        },
+        {
+            "DisplayName": "Python 3.7.9 Core Interpreter (64-bit)",
+            "Version": "3.7.9150.0",
+            "InstallDate": "\\/Date(1644469200000)\\/",
+            "Publisher": "Python Software Foundation"
+        },
+        {
+            "DisplayName": "Python 3.7.9 Standard Library (64-bit)",
+            "Version": "3.7.9150.0",
+            "InstallDate": "\\/Date(1644469200000)\\/",
+            "Publisher": "Python Software Foundation"
+        },
+        {
+            "DisplayName": "Visual Studio Community 2019",
+            "Version": "16.11.10",
+            "InstallDate": "\\/Date(1644382800000)\\/",
+            "Publisher": "Microsoft Corporation"
+        },
+        {
+            "DisplayName": "Adobe AIR",
+            "Version": "33.1.1.502",
+            "InstallDate": null,
+            "Publisher": "HARMAN International"
+        },
+        {
+            "DisplayName": "Certiport Lockdown Service",
+            "Version": null,
+            "InstallDate": null,
+            "Publisher": "Certiport"
+        },
+        {
+            "DisplayName": "CertiportNow",
+            "Version": null,
+            "InstallDate": null,
+            "Publisher": "Certiport"
+        },
+        {
+            "DisplayName": "Cisco Packet Tracer 8.1.0 32Bit",
+            "Version": null,
+            "InstallDate": "\\/Date(1644469200000)\\/",
+            "Publisher": "Cisco Systems, Inc."
+        },
+        {
+            "DisplayName": "Compass",
+            "Version": "19.0.2.907",
+            "InstallDate": null,
+            "Publisher": "Certiport"
+        },
+        {
+            "DisplayName": "GPL Ghostscript",
+            "Version": "9.20",
+            "InstallDate": null,
+            "Publisher": "Artifex Software Inc."
+        },
+        {
+            "DisplayName": "Microsoft Edge",
+            "Version": "98.0.1108.56",
+            "InstallDate": "\\/Date(1645506000000)\\/",
+            "Publisher": "Microsoft Corporation"
+        },
+        {
+            "DisplayName": "Microsoft Edge Update",
+            "Version": "1.3.155.77",
+            "InstallDate": null,
+            "Publisher": null
+        },
+        {
+            "DisplayName": "Microsoft Edge WebView2 Runtime",
+            "Version": "98.0.1108.56",
+            "InstallDate": "\\/Date(1645506000000)\\/",
+            "Publisher": "Microsoft Corporation"
+        },
+        {
+            "DisplayName": "Phonics Fun Factory Interactive Game",
+            "Version": "1.5.1.0",
+            "InstallDate": null,
+            "Publisher": "Lakeshore Learning Materials"
+        },
+        {
+            "DisplayName": "SCPS ATMS Agent",
+            "Version": "1.0.16.1",
+            "InstallDate": null,
+            "Publisher": "United Data Technologies"
+        },
+        {
+            "DisplayName": "VLC media player",
+            "Version": "3.0.12",
+            "InstallDate": null,
+            "Publisher": "VideoLAN"
+        },
+        {
+            "DisplayName": "Word Building Fun Factory Interactive Game",
+            "Version": "1.5.3.0",
+            "InstallDate": null,
+            "Publisher": "Lakeshore Learning Materials"
+        },
+        {
+            "DisplayName": "Microsoft Visual Studio Setup WMI Provider",
+            "Version": "2.11.47.9733",
+            "InstallDate": "\\/Date(1644382800000)\\/",
+            "Publisher": "Microsoft Corporation"
+        },
+        {
+            "DisplayName": "vs_FileTracker_Singleton",
+            "Version": "16.10.31303",
+            "InstallDate": "\\/Date(1644382800000)\\/",
+            "Publisher": "Microsoft Corporation"
+        },
+        {
+            "DisplayName": "vs_minshellmsires",
+            "Version": "16.10.31303",
+            "InstallDate": "\\/Date(1644382800000)\\/",
+            "Publisher": "Microsoft Corporation"
+        },
+        {
+            "DisplayName": "KACE Agent",
+            "Version": "10.1.43",
+            "InstallDate": "\\/Date(1644469200000)\\/",
+            "Publisher": "Quest Software Inc."
+        },
+        {
+            "DisplayName": "vs_filehandler_amd64",
+            "Version": "16.11.31503",
+            "InstallDate": "\\/Date(1644382800000)\\/",
+            "Publisher": "Microsoft Corporation"
+        },
+        {
+            "DisplayName": "Microsoft Visual Studio Setup Configuration",
+            "Version": "2.11.47.9733",
+            "InstallDate": "\\/Date(1644382800000)\\/",
+            "Publisher": "Microsoft Corporation"
+        },
+        {
+            "DisplayName": "Microsoft XNA Framework Redistributable 4.0",
+            "Version": "4.0.20823.0",
+            "InstallDate": "\\/Date(1645592400000)\\/",
+            "Publisher": "Microsoft Corporation"
+        },
+        {
+            "DisplayName": "IIS 7.5 Express",
+            "Version": "7.5.1190",
+            "InstallDate": "\\/Date(1644469200000)\\/",
+            "Publisher": "Microsoft Corporation"
+        },
+        {
+            "DisplayName": "XMediusFAX 8.0.0.488 (Client Redist)",
+            "Version": "8.0.0.488",
+            "InstallDate": "\\/Date(1644469200000)\\/",
+            "Publisher": "XMedius Solutions Inc."
+        },
+        {
+            "DisplayName": "Adobe Flash Player 17 NPAPI",
+            "Version": "17.0.0.169",
+            "InstallDate": "\\/Date(1644469200000)\\/",
+            "Publisher": "Adobe Systems Incorporated"
+        },
+        {
+            "DisplayName": "Cisco Jabber",
+            "Version": "12.8.1.52494",
+            "InstallDate": "\\/Date(1644382800000)\\/",
+            "Publisher": "Cisco Systems, Inc"
+        },
+        {
+            "DisplayName": "vs_minshellmsi",
+            "Version": "16.11.31503",
+            "InstallDate": "\\/Date(1644382800000)\\/",
+            "Publisher": "Microsoft Corporation"
+        },
+        {
+            "DisplayName": "Google Update Helper",
+            "Version": "1.3.36.51",
+            "InstallDate": "\\/Date(1644469200000)\\/",
+            "Publisher": "Google LLC"
+        },
+        {
+            "DisplayName": "vs_filehandler_x86",
+            "Version": "16.11.31503",
+            "InstallDate": "\\/Date(1644382800000)\\/",
+            "Publisher": "Microsoft Corporation"
+        },
+        {
+            "DisplayName": "Remote help",
+            "Version": "3.8.0.6",
+            "InstallDate": null,
+            "Publisher": "Microsoft Corporation"
+        },
+        {
+            "DisplayName": "Adobe AIR",
+            "Version": "33.1.1.502",
+            "InstallDate": "\\/Date(1644382800000)\\/",
+            "Publisher": "HARMAN International"
+        },
+        {
+            "DisplayName": "Microsoft Visual C++ 2013 Redistributable (x64) - 12.0.21005",
+            "Version": "12.0.21005.1",
+            "InstallDate": null,
+            "Publisher": "Microsoft Corporation"
+        },
+        {
+            "DisplayName": "RSAXPDFConvert",
+            "Version": "RSAXPDFConvert 1.0.1.0 01/23/2017",
+            "InstallDate": "\\/Date(1644382800000)\\/",
+            "Publisher": "Rochester Software Associates, Inc."
+        },
+        {
+            "DisplayName": "Kodu Game Lab",
+            "Version": "1.5.2",
+            "InstallDate": "\\/Date(1645592400000)\\/",
+            "Publisher": "Microsoft Research"
+        },
+        {
+            "DisplayName": "RSA SurePDF",
+            "Version": "5.1.213",
+            "InstallDate": "\\/Date(1644382800000)\\/",
+            "Publisher": "Rochester Software Associates"
+        },
+        {
+            "DisplayName": "Adobe Acrobat Reader DC",
+            "Version": "21.005.20048",
+            "InstallDate": "\\/Date(1644382800000)\\/",
+            "Publisher": "Adobe Systems Incorporated"
+        },
+        {
+            "DisplayName": "Microsoft Intune Management Extension",
+            "Version": "1.51.204.0",
+            "InstallDate": "\\/Date(1644728400000)\\/",
+            "Publisher": "Microsoft Corporation"
+        },
+        {
+            "DisplayName": "SCPS ATMS Agent",
+            "Version": "1.0.16.1",
+            "InstallDate": "\\/Date(1644382800000)\\/",
+            "Publisher": "United Data Technologies"
+        },
+        {
+            "DisplayName": "Ocularis Client",
+            "Version": "6.0.1.5",
+            "InstallDate": "\\/Date(1644469200000)\\/",
+            "Publisher": "Qognify Inc."
+        },
+        {
+            "DisplayName": "PLTW Kite Student Portal",
+            "Version": "1.0.0",
+            "InstallDate": "\\/Date(1644469200000)\\/",
+            "Publisher": "ATS"
+        }
+    ],
+    "Updates": [
+        {
+            "Caption": "http://support.microsoft.com/?kbid=5008876",
+            "Description": "Update",
+            "HotFixID": "KB5008876",
+            "InstalledOn": {
+                "value": "\\/Date(1644469200000)\\/",
+                "DateTime": "Thursday, February 10, 2022 12:00:00 AM"
+            },
+            "InstalledBy": "NT AUTHORITY\\\\SYSTEM"
+        },
+        {
+            "Caption": "https://support.microsoft.com/help/5000736",
+            "Description": "Update",
+            "HotFixID": "KB5000736",
+            "InstalledOn": {
+                "value": "\\/Date(1617940800000)\\/",
+                "DateTime": "Friday, April 9, 2021 12:00:00 AM"
+            },
+            "InstalledBy": ""
+        },
+        {
+            "Caption": "https://support.microsoft.com/help/5010342",
+            "Description": "Security Update",
+            "HotFixID": "KB5010342",
+            "InstalledOn": {
+                "value": "\\/Date(1645765200000)\\/",
+                "DateTime": "Friday, February 25, 2022 12:00:00 AM"
+            },
+            "InstalledBy": "NT AUTHORITY\\\\SYSTEM"
+        },
+        {
+            "Caption": "",
+            "Description": "Update",
+            "HotFixID": "KB5007273",
+            "InstalledOn": {
+                "value": "\\/Date(1644382800000)\\/",
+                "DateTime": "Wednesday, February 9, 2022 12:00:00 AM"
+            },
+            "InstalledBy": "NT AUTHORITY\\\\SYSTEM"
+        },
+        {
+            "Caption": "",
+            "Description": "Security Update",
+            "HotFixID": "KB5011352",
+            "InstalledOn": {
+                "value": "\\/Date(1645592400000)\\/",
+                "DateTime": "Wednesday, February 23, 2022 12:00:00 AM"
+            },
+            "InstalledBy": "NT AUTHORITY\\\\SYSTEM"
+        },
+        {
+            "Caption": "",
+            "Description": "Update",
+            "HotFixID": "KB5003503",
+            "InstalledOn": {
+                "value": "\\/Date(1622692800000)\\/",
+                "DateTime": "Thursday, June 3, 2021 12:00:00 AM"
+            },
+            "InstalledBy": "NT AUTHORITY\\\\SYSTEM"
+        }
+    ],
+    "?TZ": {
+        "Id": "Eastern Standard Time",
+        "DisplayName": "(UTC-05:00) Eastern Time (US \\u0026 Canada)",
+        "StandardName": "Eastern Standard Time",
+        "DaylightName": "Eastern Daylight Time",
+        "BaseUtcOffset": {
+            "Ticks": -180000000000,
+            "Days": 0,
+            "Hours": -5,
+            "Milliseconds": 0,
+            "Minutes": 0,
+            "Seconds": 0,
+            "TotalDays": -0.20833333333333332,
+            "TotalHours": -5,
+            "TotalMilliseconds": -18000000,
+            "TotalMinutes": -300,
+            "TotalSeconds": -18000
+        },
+        "SupportsDaylightSavingTime": true
+    },
+    "!WipeCapabilities": [
+        "doWipeMethod",
+        "doWipePersistProvisionedDataMethod",
+        "doWipeProtectedMethod",
+        "doWipePersistUserDataMethod"
+    ],
+    "GeoLocation": {
+        "Accuracy": 94,
+        "Latitude": 28.73665,
+        "Longitude": -81.33646
+    },
+    "!BIOSVendor": "HP",
+    "!ChassisType": "Notebook",
+    "?Domain": "WORKGROUP",
+    "!OSVersion": "10.0.19043",
+    "!Processor": "Intel(R) Core(TM) i3-8130U CPU @ 2.20GHz",
+    "?ServicePack": "2009",
+    "!SystemDirectory": "C:\\\\Windows\\\\system32",
+    "TimeZone": "Eastern Standard Time",
+    "Virtual": false,
+    "SCCMClient": null,
+    "SCCMMP": null,
+    "?Printers": [
+        {
+            "Name": "XMediusFax",
+            "Type": null,
+            "PortName": "XMFax",
+            "DriverName": "XMediusFax",
+            "Description": null
+        },
+        {
+            "Name": "SCPS Print Solutions Printer",
+            "Type": null,
+            "PortName": "C:\\\\ProgramData\\\\RSA\\\\SurePDF\\\\{9EDB9D3F-9E20-40E7-B0C2-C4DA8587F588}.prn",
+            "DriverName": "SCPS Print Solutions Printer",
+            "Description": null
+        },
+        {
+            "Name": "OneNote (Desktop)",
+            "Type": null,
+            "PortName": "nul:",
+            "DriverName": "Send to Microsoft OneNote 16 Driver",
+            "Description": null
+        },
+        {
+            "Name": "Microsoft XPS Document Writer",
+            "Type": null,
+            "PortName": "PORTPROMPT:",
+            "DriverName": "Microsoft XPS Document Writer v4",
+            "Description": null
+        },
+        {
+            "Name": "Microsoft Print to PDF",
+            "Type": null,
+            "PortName": "PORTPROMPT:",
+            "DriverName": "Microsoft Print To PDF",
+            "Description": null
+        },
+        {
+            "Name": "Fax",
+            "Type": null,
+            "PortName": "SHRFAX:",
+            "DriverName": "Microsoft Shared Fax Driver",
+            "Description": null
+        }
+    ]
+}

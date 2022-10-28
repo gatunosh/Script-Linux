@@ -1,0 +1,58 @@
+
+
+
+-------------------------------------sudo lshw-------------------------------
+
+RAM / read only :
+
+Manufacturer RAM -> vendor!/  
+Configured Clock !/
+Speed Device !/
+Locator -> slot !/
+Serial !/
+Number Capacity -> Size !/
+
+
+
+CPU Read Only
+
+Chassis Type :  Computer Type -> description !/
+Hostname  -> id !/
+Geo Location  ( Must)
+Network Adapters (Ethernet and Wireless) 
+Audio 
+BIOS: Operative system  
+Operating System User Profiles / Historico de  perfiles que han usado la maquina  (Must)
+Lock and Wipe Capabilities (Saber si el dispositivo lo admite o no ) 
+Processors 
+System Directory / en donde se instala el SO 
+SCCM Client ( Version) software 
+OU : Active directory – Grupos – Organization Unit 
+TPM- Trusted Platform Module - Seguridad ``
+
+Bitlocker 
+Encryption Method 
+Auto Unlock Enabled A
+uto Lock Stored 
+Encryption Percentage 
+Wipe Percentage 
+Mount Point  
+Updates 
+URL 
+Type 
+KB 
+Installed ON 
+Intalled By 
+
+Software 
+Name 
+Version 
+Publisher 
+install Date 
+User: 
+Username 
+Last Logon 
+Logon Time 
+Currently Logon 
+
+Historical information of usability
