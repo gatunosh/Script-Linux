@@ -126,6 +126,19 @@ done
 
 echo '],' >> assets.json
 
+# IPs
+declare ip_address=( $(ifconfig -a|awk '{print $1 ":" $2 " " $3 ":" $4}'|egrep -w 'Link|inet'|sed 's/ Link//'|sed 's/inet addr://') )
+ip_address=("${ip_address[@]:2}")
+echo "\"PrivateIP\": \"${ip_address[0]}\"," >> assets.json
+echo "\"SubnetMask\": \"${ip_address[1]}\"," >> assets.json
+
+declare gateway=( $(ip r | grep default) )
+gateway=("${gateway[@]:2}")
+echo "\"DefaultGateway\": \"${gateway[0]}\"," >> assets.json
+
+PublicIP=$(curl ifconfig.me)
+echo "\"PublicIP\": \"$PublicIP\"," >> assets.json
+
 echo '}' >> assets.json
 
 

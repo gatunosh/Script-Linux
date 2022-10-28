@@ -110,7 +110,7 @@
             }
         },
         {
-            "command": "sudo ifconfig | grep -i mask",
+            "command": "ifconfig -a|awk '{print $1 ":" $2 " " $3 ":" $4}'|egrep -w 'Link|inet'|sed 's/ Link//'|sed 's/inet addr://'",
             "assets": {
                 "PrivateIP": {
                     "location": "evitar el localhost",
@@ -145,7 +145,7 @@
             }
         },
         {
-            "command": "cat /etc/resolv.conf",
+            "command": "grep nameserver /etc/resolv.conf",
             "assets": {
                 "DNS": {
                     "location": "the DNS is called with nameserver",
