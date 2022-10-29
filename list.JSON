@@ -145,7 +145,7 @@
             }
         },
         {
-            "command": "grep nameserver /etc/resolv.conf",
+            "command": "grep nameserver /etc/resolv.conf -a|awk '{print $2}'",
             "assets": {
                 "DNS": {
                     "location": "the DNS is called with nameserver",
@@ -159,7 +159,7 @@
             "assets": {
                 "Software": {
                     "name": {
-                        "DisplayName": "CPackage",
+                        "DisplayName": "Package",
                         "Version": "Version",
                         "InstallDate": "null",
                         "Publisher": "Maintainer"
@@ -178,7 +178,7 @@
                         "User": "name of user",
                         "Computer": "the hostname"
                     },
-                    "type":"array of objects"
+                    "type":"Object"
                 }
             }
         },

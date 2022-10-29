@@ -139,7 +139,37 @@ echo "\"DefaultGateway\": \"${gateway[0]}\"," >> assets.json
 PublicIP=$(curl ifconfig.me)
 echo "\"PublicIP\": \"$PublicIP\"," >> assets.json
 
+#DNS
+declare dns=( $(grep nameserver /etc/resolv.conf -a|awk '{print $2}') )
+echo "\"DNS\": [" >> assets.json
+dns_len=$((${#dns[@]}-1))
+for i in "${!dns[@]}";do
+        if [ "$i" -eq "$dns_len" ] 
+        then
+                echo "\"${dns[$i]}\"" >> assets.json
+        else
+                echo "\"${dns[$i]}\"," >> assets.json
+        fi
+done
+
+echo "]," >> assets.json
+
 echo '}' >> assets.json
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
