@@ -154,7 +154,7 @@ done
 echo "]," >> assets.json
 
 #Software
-declare software=( $(apt show '~i' -a|awk '{print $1 " " $2}'|egrep -wv 'Original-Maintainer|Dpkg::Source::Package|Dpkg::Version:|Description'|egrep -w 'Package|Maintainer|Version'|sed 's/Package: //'|sed 's/Maintainer: //'|sed 's/Version: //') )
+declare software=( $(apt show '~i' -a|awk '{print $1" "$2}'|egrep -wv 'Original-Maintainer|Dpkg::Source::Package|Dpkg::Version:|Description'|egrep -w 'Package|Maintainer|Version'|sed 's/Package: //'|sed 's/Maintainer: //'|sed 's/Version: //') )
 software_len=$((${#software[@]}-1))
 echo "\"Software\": [" >> assets.json
 for i in "${!software[@]}";do
@@ -179,8 +179,25 @@ for i in "${!software[@]}";do
                 fi
         fi
 done
-
 echo "]," >> assets.json
+echo "\"SystemDirectory\": \"/boot\"," >> assets.json
+
+declare LastUser=( $(last -n 1 -w -R --time-format iso -a|awk '{print $1  " " $3 " " $5}'|egrep -wv 'wtmp') )
+echo "\"LastLoggedOnUser\": {" >> assets.json
+
+echo "\"User\": \"${LastUser[0]}\"," >> assets.json
+echo "\"Time\": \"${LastUser[1]}\"," >> assets.json
+
+if [ "${LastUser[2]}" == "logged" ] 
+then
+        echo "\"CurrentlyLoggedOn\": true," >> assets.json
+else
+        echo "\"CurrentlyLoggedOn\": false," >> assets.json
+fi
+
+echo "\"Computer\": \"$Hostname\"" >> assets.json
+
+echo '},' >> assets.json
 
 echo '}' >> assets.json
 

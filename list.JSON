@@ -169,7 +169,7 @@
             }
         },
         {
-            "command": "last -1",
+            "command": "last -n 1 -w -R --time-format iso -a|awk '{print $1  " " $3}'|egrep -wv 'wtmp'",
             "assets": {
                 "LastLoggedOnUser": {
                     "name": {
