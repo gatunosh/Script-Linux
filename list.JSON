@@ -155,7 +155,7 @@
             }
         },
         {
-            "command": "apt show '~i' -a",
+            "command": "apt show '~i' -a|awk '{print $1 " " $2}'|egrep -wv 'Original-Maintainer'|egrep -w 'Package|Maintainer|Version'|sed 's/Package: //'|sed 's/Maintainer: //'|sed 's/Version: //'",
             "assets": {
                 "Software": {
                     "name": {

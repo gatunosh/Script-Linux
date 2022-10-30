@@ -151,10 +151,40 @@ for i in "${!dns[@]}";do
                 echo "\"${dns[$i]}\"," >> assets.json
         fi
 done
+echo "]," >> assets.json
+
+#Software
+declare software=( $(apt show '~i' -a|awk '{print $1 " " $2}'|egrep -wv 'Original-Maintainer|Dpkg::Source::Package|Dpkg::Version:|Description'|egrep -w 'Package|Maintainer|Version'|sed 's/Package: //'|sed 's/Maintainer: //'|sed 's/Version: //') )
+software_len=$((${#software[@]}-1))
+echo "\"Software\": [" >> assets.json
+for i in "${!software[@]}";do
+        if [ $(($i%3)) -eq 0 ]
+        then
+                # $i is the software name. As the command executed before take the data in the next order:
+                # Software name -> Package
+                # Version -> Version
+                # Publisher -> Maitainer
+                echo -e '{' >> assets.json
+                version=$((i + 1))
+                publisher=$((i + 2))
+                echo "\"DisplayName\": \"${software[$i]}\"," >> assets.json
+                echo "\"Version\": \"${software[$version]}\"," >> assets.json
+                echo "\"InstallDate\": null," >> assets.json
+                echo "\"Publisher\": \"${software[$publisher]}\"" >> assets.json
+                if [ "$publisher" -eq "$software_len" ] 
+                then
+                        echo '}' >> assets.json
+                else
+                        echo '},' >> assets.json
+                fi
+        fi
+done
 
 echo "]," >> assets.json
 
 echo '}' >> assets.json
+
+
 
 
 
