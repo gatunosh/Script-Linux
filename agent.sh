@@ -199,6 +199,9 @@ echo "\"Computer\": \"$Hostname\"" >> assets.json
 
 echo '},' >> assets.json
 
+echo "\"WipeCapabilities\": []," >> assets.json
+echo "\"BitLockerStatus\": null" >> assets.json
+
 echo '}' >> assets.json
 
 
