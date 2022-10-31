@@ -262,6 +262,12 @@ Ubuntu
 libnet-libidn-perl
 0.12.ds-3build2
 Ubuntu
+clamav
+0.103.6+dfsg-0ubuntu0.20.04.1
+Ubuntu
+clamav
+0.102.2+dfsg-2ubuntu1
+Ubuntu
 cpio
 2.13+dfsg-2ubuntu0.3
 Ubuntu
@@ -1495,6 +1501,24 @@ Ubuntu
 libwbclient0
 2:4.11.6+dfsg-0ubuntu1
 Ubuntu
+clamav-freshclam
+0.103.6+dfsg-0ubuntu0.20.04.1
+Ubuntu
+clamav-freshclam
+0.102.2+dfsg-2ubuntu1
+Ubuntu
+libclamav9
+0.103.6+dfsg-0ubuntu0.20.04.1
+Ubuntu
+libclamav9
+0.102.2+dfsg-2ubuntu1
+Ubuntu
+clamav-base
+0.103.6+dfsg-0ubuntu0.20.04.1
+Ubuntu
+clamav-base
+0.102.2+dfsg-2ubuntu1
+Ubuntu
 wget
 1.20.3-1ubuntu2
 Ubuntu
@@ -2299,7 +2323,6 @@ Ubuntu
 python3-pkg-resources
 45.2.0-1
 Ubuntu
-Description: Package
 python3-pexpect
 4.6.0-1build1
 Ubuntu
@@ -3407,7 +3430,6 @@ Ubuntu
 x11-common
 1:7.7+19ubuntu14
 Ubuntu
-"X Version
 x11-xserver-utils
 7.7+8
 Ubuntu
@@ -5698,6 +5720,12 @@ Ubuntu
 libmetis5
 5.1.0.dfsg-5
 Ubuntu
+libmspack0
+0.10.1-2
+Ubuntu
+libtfm1
+0.13-4
+Ubuntu
 libclass-data-inheritable-perl
 0.08-3
 Ubuntu
@@ -7745,6 +7773,9 @@ libyelp0
 Ubuntu
 t1utils
 1.41-3
+Ubuntu
+linux-firmware
+1.187.34
 Ubuntu
 linux-firmware
 1.187.33
@@ -10177,7 +10208,6 @@ Ubuntu
 libsundials-dev
 3.1.2+dfsg-3ubuntu2
 Ubuntu
-Description: Package
 petsc-dev
 3.12.4+dfsg1-1
 Ubuntu
