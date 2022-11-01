@@ -3,7 +3,9 @@
 echo "Installing"
 echo "==========================================================="
 
-#sudo apt-get install jq
+apt-get install jq
+apt-get net-tools
+apt-get install network-manager
 
 echo "==========================================================="
 echo "Starting the script"
@@ -11,7 +13,7 @@ echo "==========================================================="
 
 json="assets_values.json"
 
-sudo lshw -json > $json
+lshw -json > $json
 
 echo -e '{' > assets.json
 
