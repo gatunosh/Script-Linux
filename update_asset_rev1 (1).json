@@ -1,7 +1,7 @@
 {
     "? Subnet": "10.44.112.0_20  ASK",
     "? Monitor": null,
-    "?TPMStatus": {
+    "x?TPMStatus": {
         "Enabled": true,
         "Activated": true,
         "Owned": true
@@ -34,7 +34,7 @@
         "?BusType": "SATA",
         "?BootDisk": true
     },
-    "UserProfiles": [
+    "/UserProfiles": [
         {
             "UserName": "NT AUTHORITY\\\\NETWORK SERVICE",
             "LastUseTime": "\\/Date(1645762448431)\\/",
@@ -61,7 +61,7 @@
             "Loaded": false
         }
     ],
-    "LocalAdmins": [
+    "?LocalAdmins": [
         "TEST-X-440G5\\\\Administrator",
         "TEST-X-440G5\\\\testing"
     ],

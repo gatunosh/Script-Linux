@@ -228,6 +228,63 @@ echo "\"Firmware\": \"$HDFirmware\"" >> assets.json
 
 echo '},' >> assets.json
 
+echo "\"GeoLocation\": {" >> assets.json
+
+
+GeoLocation=( $(curl ipinfo.io/loc) )
+ArrayGeoLocation=(${GeoLocation//;/})
+Latitude=( $(echo "$ArrayGeoLocation" | cut -d "," -f 1) )
+echo "\"Latitude\": \"$Latitude\"," >> assets.json
+Longitude=( $(echo "$ArrayGeoLocation" | cut -d "," -f 2) )
+echo "\"Longitude\": \"$Longitude\"" >> assets.json
+
+echo '},' >> assets.json
+
+TimeZone=( $(cat /etc/timezone) )
+
+echo "\"TimeZone\": \"$TimeZone\"," >> assets.json
+
+# Users Profile 
+
+declare UserProfiles=( $(getent passwd {1000..6000} | cut -d ":" -f 1) )
+declare UserProfilesLoggedIn=( $(who -u |awk '{print $1 ":" $3}') )
+user_profiles_len=$((${#UserProfiles[@]}-1))
+echo "\"UserProfiles\": [" >> assets.json
+for i in "${!UserProfiles[@]}"; do
+
+echo -e '{' >> assets.json
+echo "\"UserName\": \"${UserProfiles[$i]}\"," >> assets.json
+FLAG=0
+for j in "${!UserProfilesLoggedIn[@]}"; do
+        
+        USERNAME=( $(echo "${UserProfilesLoggedIn[$j]}" | cut -d ":" -f 1) )
+        DATE=( $(echo "${UserProfilesLoggedIn[$j]}" | cut -d ":" -f 2) )
+        if [ "${UserProfiles[$i]}" == "$USERNAME" ] 
+        then
+                echo "\"Loaded\": true," >> assets.json
+                echo "\"LastUseTime\": \"$DATE\"" >> assets.json
+                let FLAG=1
+        fi
+
+done
+
+if [ "$FLAG" == 0 ] 
+then
+        echo "\"Loaded\": false," >> assets.json
+        echo "\"LastUseTime\": null" >> assets.json
+fi
+
+if [ "$i" -eq "$user_profiles_len" ] 
+then
+        echo '}' >> assets.json
+else
+        echo '},' >> assets.json
+fi
+
+done
+
+echo "]," >> assets.json
+
 echo "\"WipeCapabilities\": []," >> assets.json
 echo "\"BitLockerStatus\": null," >> assets.json
 echo "\"Monitor\": null," >> assets.json
