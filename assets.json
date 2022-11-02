@@ -34,10 +34,6 @@
 {
 "macAddress": "AA:63:7D:CF:03:1E",
 "chanel": "9"
-},
-{
-"macAddress": "FA:8F:CA:82:15:44",
-"chanel": "9"
 }
 ],
 "PrivateIP": "inet:192.168.0.161",
@@ -2893,6 +2889,12 @@
 "Publisher": "Ubuntu"
 },
 {
+"DisplayName": "smartmontools",
+"Version": "7.1-1build1",
+"InstallDate": null,
+"Publisher": "Ubuntu"
+},
+{
 "DisplayName": "libboost-iostreams1.71.0",
 "Version": "1.71.0-6ubuntu6",
 "InstallDate": null,
@@ -5540,7 +5542,7 @@
 },
 {
 "DisplayName": "firefox",
-"Version": "105.0+build2-0ubuntu0.20.04.1",
+"Version": "106.0.2+build1-0ubuntu0.20.04.1",
 "InstallDate": null,
 "Publisher": "Ubuntu"
 },
@@ -5672,7 +5674,7 @@
 },
 {
 "DisplayName": "firefox-locale-ar",
-"Version": "105.0+build2-0ubuntu0.20.04.1",
+"Version": "106.0.2+build1-0ubuntu0.20.04.1",
 "InstallDate": null,
 "Publisher": "Ubuntu"
 },
@@ -5696,7 +5698,7 @@
 },
 {
 "DisplayName": "firefox-locale-en",
-"Version": "105.0+build2-0ubuntu0.20.04.1",
+"Version": "106.0.2+build1-0ubuntu0.20.04.1",
 "InstallDate": null,
 "Publisher": "Ubuntu"
 },
@@ -5720,7 +5722,7 @@
 },
 {
 "DisplayName": "firefox-locale-es",
-"Version": "105.0+build2-0ubuntu0.20.04.1",
+"Version": "106.0.2+build1-0ubuntu0.20.04.1",
 "InstallDate": null,
 "Publisher": "Ubuntu"
 },
@@ -22990,9 +22992,17 @@
 "SystemDirectory": "/boot",
 "LastLoggedOnUser": {
 "User": "gatunosh",
-"Time": "2022-10-31T11:13:22-05:00",
+"Time": "2022-11-01T13:15:34-05:00",
 "CurrentlyLoggedOn": true,
 "Computer": "gatunosh"
+},
+"HDInfo": {
+"Model": "WDS100T2G0A-00JH30",
+"Serial": "201764800351",
+"Mode": "gpt-1.00",
+"Path": "/dev/sda",
+"FreeGB": 931,
+"Firmware": "UH450400"
 },
 "WipeCapabilities": [],
 "BitLockerStatus": null,

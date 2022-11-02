@@ -27,18 +27,12 @@
     },
     "WOL": false,
     "?Description": null,
-    "?HDInfo": {
-        "Model": "SAMSUNG MZNLN128HAHQ-000H1",
-        "Serial": "S3T8NG0M613374",
-        "HealthStatus": "Healthy",
-        "OperationalStatus": "Online",
-        "Mode": "GPT",
-        "Path": "C:",
+    "/HDInfo": {
+        "?HealthStatus": "Healthy",
+        "?OperationalStatus": "Online",
         "CapacityGB": 119.24,
-        "FreeGB": 71.39,
-        "BusType": "SATA",
-        "BootDisk": true,
-        "Firmware": "MVT24H3Q"
+        "?BusType": "SATA",
+        "?BootDisk": true
     },
     "UserProfiles": [
         {

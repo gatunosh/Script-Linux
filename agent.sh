@@ -17,7 +17,6 @@ lshw -json > $json
 
 echo -e '{' > assets.json
 
-# LAST TIME -> $(echo "$json" | jq -r '.[] .product')
 
 PCModel=$(jq -r '.[] .product' $json)
 echo "\"PCModel\": \"$PCModel\"," >> assets.json
@@ -198,6 +197,34 @@ else
 fi
 
 echo "\"Computer\": \"$Hostname\"" >> assets.json
+
+echo '},' >> assets.json
+
+# HD INFO
+echo "\"HDInfo\": {" >> assets.json
+
+HDModel=( $(hdparm -I /dev/sda|egrep 'Model Number' -a|awk '{print $(NF)}') )
+echo "\"Model\": \"$HDModel\"," >> assets.json
+
+HDSerial=( $(hdparm -I /dev/sda|egrep 'Serial Number' -a|awk '{print $(NF)}') )
+echo "\"Serial\": \"$HDSerial\"," >> assets.json
+
+HDMode=( $(lshw -c disk|egrep 'partitioned:' -a|awk '{print $2}') )
+echo "\"Mode\": \"$HDMode\"," >> assets.json
+
+HDPath=( $(lshw -c disk|egrep 'logical name: ' -a|awk '{print $(NF)}') )
+echo "\"Path\": \"$HDPath\"," >> assets.json
+
+HDFreeBytes=( $(hdparm -I /dev/sda|egrep 'device size with M = 1024' -a|awk '{print $7}') )
+HDFreeGB=$(($HDFreeBytes / 1024))
+FreeGB=${HDFreeGB/\.*/}
+echo "\"FreeGB\": $FreeGB," >> assets.json
+
+HDBusInfo=( $(lshw -c disk|egrep 'bus info:' -a|awk '{print $(NF)}') )
+echo "\"BUS\": \"$HDBusInfo\"," >> assets.json
+
+HDFirmware=( $(hdparm -I /dev/sda|egrep 'Firmware Revision' -a|awk '{print $(NF)}') )
+echo "\"Firmware\": \"$HDFirmware\"" >> assets.json
 
 echo '},' >> assets.json
 
