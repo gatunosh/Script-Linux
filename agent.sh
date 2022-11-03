@@ -258,7 +258,7 @@ echo "\"TimeZone\": \"$TimeZone\"," >> assets.json
 # Users Profile 
 
 declare UserProfiles=( $(getent passwd {1000..6000} | cut -d ":" -f 1) )
-declare UserProfilesLoggedIn=( $(who -u |awk '{print $1 ":" $3}') )
+declare UserProfilesLoggedIn=( $(who -u |awk '{print $1 ":"$3}' |awk '!a[$0]++') )
 user_profiles_len=$((${#UserProfiles[@]}-1))
 echo "\"UserProfiles\": [" >> assets.json
 for i in "${!UserProfiles[@]}"; do
