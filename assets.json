@@ -23116,8 +23116,8 @@
 ],
 "SystemDirectory": "/boot",
 "LastLoggedOnUser": {
-"User": "jackson-admin",
-"Time": "2022-11-02T11:09:19-05:00",
+"User": "gatunosh",
+"Time": "2022-11-03T01:20:22-05:00",
 "CurrentlyLoggedOn": true,
 "Computer": "gatunosh"
 },
@@ -23139,17 +23139,17 @@
 {
 "UserName": "gatunosh",
 "Loaded": true,
-"LastUseTime": "2022-11-02"
+"LastUseTime": "2022-11-03"
 },
 {
 "UserName": "jackson-standard",
-"Loaded": true,
-"LastUseTime": "2022-11-02"
+"Loaded": false,
+"LastUseTime": null
 },
 {
 "UserName": "jackson-admin",
-"Loaded": true,
-"LastUseTime": "2022-11-02"
+"Loaded": false,
+"LastUseTime": null
 },
 {
 "UserName": "cristal",

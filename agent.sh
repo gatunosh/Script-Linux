@@ -3,9 +3,9 @@
 echo "Installing"
 echo "==========================================================="
 
-#apt-get install jq
-#apt-get net-tools
-#apt-get install network-manager
+apt-get install jq
+apt-get net-tools
+apt-get install network-manager
 
 echo "==========================================================="
 echo "Starting the script"
@@ -16,49 +16,49 @@ json="assets_values.json"
 lshw -json > $json
 
 json_len=( $(jq length $json) )
-if [ "$json_len" != 1 ] 
+if [ "$json_len" == 1 ] 
 then
-        json=( $(jq '.[]' $json) )
-        echo "${json[@]}" > assets_values.json
+        json_bracketoff=( $(jq '.[]' $json) )
+        echo -e "${json_bracketoff[@]}" > $json
 fi
 
 echo -e '{' > assets.json
 
-PCModel=$(jq '.[] .product' $json)
+PCModel=$(jq '.product' $json)
 echo "\"PCModel\": $PCModel," >> assets.json
 
-PCManufacturer=$(jq '.[] .vendor' $json)
+PCManufacturer=$(jq '.vendor' $json)
 echo "\"PCManufacturer\": $PCManufacturer," >> assets.json
 
-Hostname=$(jq '.[] .id' $json)
+Hostname=$(jq '.id' $json)
 echo "\"Hostname\": $Hostname," >> assets.json
 
-ChassisType=$(jq '.[] .configuration .chassis' $json)
+ChassisType=$(jq '.configuration .chassis' $json)
 echo "\"ChassisType\": $ChassisType," >> assets.json
 
-WirelessAdapter=$(jq '.[] .children[0] .children[3] .children[8] .children[0] .product' $json)
+WirelessAdapter=$(jq '.children[0] .children[3] .children[8] .children[0] .product' $json)
 echo "\"WirelessAdapter\": $WirelessAdapter," >> assets.json
 
-WirelessMAC=$(jq '.[] .children[0] .children[3] .children[8] .children[0] .serial' $json)
+WirelessMAC=$(jq '.children[0] .children[3] .children[8] .children[0] .serial' $json)
 echo "\"WirelessMAC\": $WirelessMAC," >> assets.json
 
-WiredAdapter=$(jq '.[] .children[0] .children[3] .children[9] .children[0] .product' $json)
+WiredAdapter=$(jq '.children[0] .children[3] .children[9] .children[0] .product' $json)
 echo "\"WiredAdapter\": $WiredAdapter," >> assets.json
 
-WiredMAC=$(jq '.[] .children[0] .children[3] .children[9] .children[0] .serial' $json)
+WiredMAC=$(jq '.children[0] .children[3] .children[9] .children[0] .serial' $json)
 echo "\"WiredMAC\": $WiredMAC," >> assets.json
 
-video_controller_vendor=$(jq -r '.[] .children[0] .children[3] .children[0] .vendor' $json)
-video_controller_product=$(jq -r '.[] .children[0] .children[3] .children[0] .product' $json)
+video_controller_vendor=$(jq -r '.children[0] .children[3] .children[0] .vendor' $json)
+video_controller_product=$(jq -r '.children[0] .children[3] .children[0] .product' $json)
 VideoController="$video_controller_vendor $video_controller_product"
 echo "\"VideoController\": \"$VideoController\"," >> assets.json
 
-audio_controller_vendor=$(jq -r '.[] .children[0] .children[3] .children[12] .vendor' $json)
-audio_controller_name=$(jq -r '.[] .children[0] .children[3] .children[12] .product' $json)
+audio_controller_vendor=$(jq -r '.children[0] .children[3] .children[12] .vendor' $json)
+audio_controller_name=$(jq -r '.children[0] .children[3] .children[12] .product' $json)
 echo "\"AudioController\": [{\"Manufacturer\": \"$audio_controller_vendor\",\"Name\": \"$audio_controller_name\",\"Status\": null,\"StatusInfo\": null}]," >> assets.json
 
 # Tha ram may be separated so We've gotta iterate the slots to get the information
-readarray -t slots < <(jq -c '.[] .children[0] .children[2] .children[]' $json)
+readarray -t slots < <(jq -c '.children[0] .children[2] .children[]' $json)
 slots_len=${#slots[@]}
 COUNTER=0
 echo "\"RAM\": [" >> assets.json
@@ -93,19 +93,19 @@ for item in "${slots[@]}";do
 done
 echo '],' >> assets.json
 
-Processor=$(jq -r '.[] .children[0] .children[1] .product' $json)
+Processor=$(jq -r '.children[0] .children[1] .product' $json)
 echo "\"Processor\": \"$Processor\"," >> assets.json
 
-BiosVersion=$(jq -r '.[] .children[0] .children[0] .version' $json)
+BiosVersion=$(jq -r '.children[0] .children[0] .version' $json)
 echo "\"BiosVersion\": \"$BiosVersion\"," >> assets.json
 
-BIOSVendor=$(jq -r '.[] .children[0] .children[0] .vendor' $json)
+BIOSVendor=$(jq -r '.children[0] .children[0] .vendor' $json)
 echo "\"BIOSVendor\": \"$BIOSVendor\"," >> assets.json
 
-OS=$(jq -r '.[] .children[0] .children[13] .children[0] .children[0] .vendor' $json)
+OS=$(jq -r '.children[0] .children[13] .children[0] .children[0] .vendor' $json)
 echo "\"OS\": \"$OS\"," >> assets.json
 
-OSVersion=$(jq -r '.[] .children[0] .children[13] .children[0] .children[0] .version' $json)
+OSVersion=$(jq -r '.children[0] .children[13] .children[0] .children[0] .version' $json)
 echo "\"OSVersion\": \"$OSVersion\"," >> assets.json
 
 rm $json
