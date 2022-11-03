@@ -166,7 +166,7 @@ done
 echo "]," >> assets.json
 
 #Software
-declare software=( $(apt show '~i' -a|awk '{print $1" "$2}'|egrep -wv 'Original-Maintainer|Dpkg::Source::Package|Dpkg::Version:|Description|X Version'|egrep -w 'Package|Maintainer|Version'|sed 's/Package: //'|sed 's/Maintainer: //'|sed 's/Version: //') )
+declare software=( $(apt show '~i' -a|awk '{print $1" "$2}'|egrep -wv 'Original-Maintainer|Dpkg::Source::Package|Dpkg::Version:|Description|X Version'|egrep -w '^Package|^Maintainer|^Version'|sed 's/Package: //'|sed 's/Maintainer: //'|sed 's/Version: //') )
 software_len=$((${#software[@]}-1))
 echo "\"Software\": [" >> assets.json
 for i in "${!software[@]}";do
@@ -183,7 +183,7 @@ for i in "${!software[@]}";do
                 echo "\"Version\": \"${software[$version]}\"," >> assets.json
                 echo "\"InstallDate\": null," >> assets.json
                 echo "\"Publisher\": \"${software[$publisher]}\"" >> assets.json
-                if [ "$i" -eq "$software_len" ] 
+                if [ "$publisher" == "$software_len" ] 
                 then
                         echo '}' >> assets.json
                 else
