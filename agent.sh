@@ -50,12 +50,17 @@ echo "\"WiredMAC\": $WiredMAC," >> assets.json
 
 video_controller_vendor=$(jq -r '.children[0] .children[3] .children[0] .vendor' $json)
 video_controller_product=$(jq -r '.children[0] .children[3] .children[0] .product' $json)
+if [ "$video_controller_vendor" == null ] 
+then
+echo "\"VideoController\": null," >> assets.json
+else
 VideoController="$video_controller_vendor $video_controller_product"
 echo "\"VideoController\": \"$VideoController\"," >> assets.json
+fi
 
-audio_controller_vendor=$(jq -r '.children[0] .children[3] .children[12] .vendor' $json)
-audio_controller_name=$(jq -r '.children[0] .children[3] .children[12] .product' $json)
-echo "\"AudioController\": [{\"Manufacturer\": \"$audio_controller_vendor\",\"Name\": \"$audio_controller_name\",\"Status\": null,\"StatusInfo\": null}]," >> assets.json
+audio_controller_vendor=$(jq '.children[0] .children[3] .children[12] .vendor' $json)
+audio_controller_name=$(jq '.children[0] .children[3] .children[12] .product' $json)
+echo "\"AudioController\": [{\"Manufacturer\": $audio_controller_vendor,\"Name\": $audio_controller_name,\"Status\": null,\"StatusInfo\": null}]," >> assets.json
 
 # Tha ram may be separated so We've gotta iterate the slots to get the information
 readarray -t slots < <(jq -c '.children[0] .children[2] .children[]' $json)
@@ -93,20 +98,20 @@ for item in "${slots[@]}";do
 done
 echo '],' >> assets.json
 
-Processor=$(jq -r '.children[0] .children[1] .product' $json)
-echo "\"Processor\": \"$Processor\"," >> assets.json
+Processor=$(jq '.children[0] .children[1] .product' $json)
+echo "\"Processor\": $Processor," >> assets.json
 
-BiosVersion=$(jq -r '.children[0] .children[0] .version' $json)
-echo "\"BiosVersion\": \"$BiosVersion\"," >> assets.json
+BiosVersion=$(jq '.children[0] .children[0] .version' $json)
+echo "\"BiosVersion\": $BiosVersion," >> assets.json
 
-BIOSVendor=$(jq -r '.children[0] .children[0] .vendor' $json)
-echo "\"BIOSVendor\": \"$BIOSVendor\"," >> assets.json
+BIOSVendor=$(jq '.children[0] .children[0] .vendor' $json)
+echo "\"BIOSVendor\": $BIOSVendor," >> assets.json
 
-OS=$(jq -r '.children[0] .children[13] .children[0] .children[0] .vendor' $json)
-echo "\"OS\": \"$OS\"," >> assets.json
+OS=$(jq '.children[0] .children[13] .children[0] .children[0] .vendor' $json)
+echo "\"OS\": $OS," >> assets.json
 
-OSVersion=$(jq -r '.children[0] .children[13] .children[0] .children[0] .version' $json)
-echo "\"OSVersion\": \"$OSVersion\"," >> assets.json
+OSVersion=$(jq '.children[0] .children[13] .children[0] .children[0] .version' $json)
+echo "\"OSVersion\": $OSVersion," >> assets.json
 
 rm $json
 
@@ -147,7 +152,7 @@ PublicIP=$(curl ifconfig.me)
 echo "\"PublicIP\": \"$PublicIP\"," >> assets.json
 
 #DNS
-declare dns=( $(grep nameserver /etc/resolv.conf -a|awk '{print $2}') )
+declare dns=( $(grep -w nameserver /etc/resolv.conf -a|awk '{print $2}') )
 echo "\"DNS\": [" >> assets.json
 dns_len=$((${#dns[@]}-1))
 for i in "${!dns[@]}";do
