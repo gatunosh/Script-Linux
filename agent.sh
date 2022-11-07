@@ -3,9 +3,9 @@
 echo "Installing"
 echo "==========================================================="
 
-apt-get install jq
-apt-get net-tools
-apt-get install network-manager
+#apt-get install jq
+#apt-get net-tools
+#apt-get install network-manager
 
 echo "==========================================================="
 echo "Starting the script"
@@ -36,27 +36,46 @@ echo "\"Hostname\": $Hostname," >> assets.json
 ChassisType=$(jq '.configuration .chassis' $json)
 echo "\"ChassisType\": $ChassisType," >> assets.json
 
-WirelessAdapter=$(jq '.children[0] .children[3] .children[8] .children[0] .product' $json)
-echo "\"WirelessAdapter\": $WirelessAdapter," >> assets.json
+readarray -t network_array < <(lshw -c network|egrep -w 'product|serial|description'|sed 's/description: //'|sed 's/product: //'|sed 's/serial: //'| sed -e 's/^[ \t]*//')
 
-WirelessMAC=$(jq '.children[0] .children[3] .children[8] .children[0] .serial' $json)
-echo "\"WirelessMAC\": $WirelessMAC," >> assets.json
+for i in "${!network_array[@]}"; do
+        if [ "${network_array[$i]}" == "Ethernet interface" ] 
+        then
+                product_net=$((i + 1))
+                serial_net=$((i + 2))
+                echo "\"WiredAdapter\": \"${network_array[$product_net]}\"," >> assets.json
+                echo "\"WiredMAC\": \"${network_array[$serial_net]}\"," >> assets.json
+        fi
+        if [ "${network_array[$i]}" == "Wireless interface" ] 
+        then
+                product_net=$((i + 1))
+                serial_net=$((i + 2))
+                echo "\"WirelessAdapter\": \"${network_array[$product_net]}\"," >> assets.json
+                echo "\"WirelessMAC\": \"${network_array[$serial_net]}\"," >> assets.json
+        fi
+done
 
-WiredAdapter=$(jq '.children[0] .children[3] .children[9] .children[0] .product' $json)
-echo "\"WiredAdapter\": $WiredAdapter," >> assets.json
-
-WiredMAC=$(jq '.children[0] .children[3] .children[9] .children[0] .serial' $json)
-echo "\"WiredMAC\": $WiredMAC," >> assets.json
-
-video_controller_vendor=$(jq -r '.children[0] .children[3] .children[0] .vendor' $json)
-video_controller_product=$(jq -r '.children[0] .children[3] .children[0] .product' $json)
-if [ "$video_controller_vendor" == null ] 
+readarray -t video_array < <(lshw -c display|egrep 'vendor|product'|sed 's/product: //'|sed 's/vendor: //'| sed -e 's/^[ \t]*//')
+video_array_len=$((${#video_array[@]}-1))
+echo "\"VideoController\": [" >> assets.json
+if [ "$video_array_len" > 0 ] 
 then
-echo "\"VideoController\": null," >> assets.json
-else
-VideoController="$video_controller_vendor $video_controller_product"
-echo "\"VideoController\": \"$VideoController\"," >> assets.json
+        for i in "${!video_array[@]}";do
+        if [ $(($i%2)) -eq 0 ]
+        then
+                index_video_controller=$((i+1))
+                VideoController="${video_array[$index_video_controller]} ${video_array[$i]}"
+                if [ "$index_video_controller" -eq "$video_array_len" ] 
+                then
+                        echo "\"$VideoController\"" >> assets.json
+                else
+                        echo "\"$VideoController\"," >> assets.json
+                fi
+        fi
+        
+        done
 fi
+echo '],' >> assets.json
 
 audio_controller_vendor=$(jq '.children[0] .children[3] .children[12] .vendor' $json)
 audio_controller_name=$(jq '.children[0] .children[3] .children[12] .product' $json)
@@ -98,8 +117,8 @@ for item in "${slots[@]}";do
 done
 echo '],' >> assets.json
 
-Processor=$(jq '.children[0] .children[1] .product' $json)
-echo "\"Processor\": $Processor," >> assets.json
+readarray -t Processor < <(lshw -c processor|egrep -w 'product'|sed 's/product: //'| sed -e 's/^[ \t]*//')
+echo "\"Processor\": \"${Processor[0]}\"," >> assets.json
 
 BiosVersion=$(jq '.children[0] .children[0] .version' $json)
 echo "\"BiosVersion\": $BiosVersion," >> assets.json
@@ -107,11 +126,9 @@ echo "\"BiosVersion\": $BiosVersion," >> assets.json
 BIOSVendor=$(jq '.children[0] .children[0] .vendor' $json)
 echo "\"BIOSVendor\": $BIOSVendor," >> assets.json
 
-OS=$(jq '.children[0] .children[13] .children[0] .children[0] .vendor' $json)
-echo "\"OS\": $OS," >> assets.json
-
-OSVersion=$(jq '.children[0] .children[13] .children[0] .children[0] .version' $json)
-echo "\"OSVersion\": $OSVersion," >> assets.json
+readarray -t os_array < <(sudo lshw -C volume|egrep -w 'vendor|version'|sed 's/vendor: //'|sed 's/version: //'|sed -e 's/^[ \t]*//')
+echo "\"OS\": \"${os_array[0]}\"," >> assets.json
+echo "\"OSVersion\": \"${os_array[1]}\"," >> assets.json
 
 rm $json
 
@@ -306,26 +323,3 @@ echo "\"SCCMClient\": null," >> assets.json
 echo "\"SCCMMP\": null" >> assets.json
 
 echo '}' >> assets.json
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
